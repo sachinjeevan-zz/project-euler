@@ -22,11 +22,8 @@ int get_divisors(int n)
 int solve(int count)
 {
     int n, i;
-    for (i = 1, n = 1; ; n += ++i) {
-        int c = get_divisors(n);
-        if (c >= count)
-            break;
-    }
+    for (i = 1, n = 1; get_divisors(n) < count; n += ++i)
+        ;
     return n;
 }
 
