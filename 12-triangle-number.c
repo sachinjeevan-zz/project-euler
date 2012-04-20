@@ -8,7 +8,7 @@ int get_divisors(int n)
 {
     int i;
     int count = 1;
-    for (i = 2; i <= n; i++) {
+    for (i = 2; i * i <= n; i++) {
         int j = 1;
         while (n % i == 0) {
             n /= i;
@@ -16,6 +16,8 @@ int get_divisors(int n)
         }
         count *= j;
     }
+    if (n > 1)
+        count *= 2;
     return count;
 }
 
